@@ -1,0 +1,35 @@
+node{
+    def mavenHome = tool name: 'maven3.8.6'
+    stage('1cloneCode'){
+        git "https://github.com/nfestaclass02/maven-web-application.git"
+        //sh "https://github.com/nfestaclass02/maven-web-application.git"
+        //bat "https://github.com/nfestaclass02/maven-web-application.git"
+    }
+    stage('2test&build'){
+        sh "${mavenHome}/bin/mvn install"
+    }
+    stage('3CodeQuality'){
+        sh "${mavenHome}/bin/mvn sonar:sonar"
+    }
+    stage('4UploadArtifacts'){
+        sh "${mavenHome}/bin/mvn deploy"
+    }
+    stage('5Deployment-uat'){
+        deploy adapters: [tomcat9(credentialsId: 'Tomcat-credentials', path: '', url: 'http://54.208.131.217:8080/')], contextPath: null, war: 'target/*war'
+    }
+    stage('6Approval'){
+        timeout(time:10, unit:'HOURS'){
+            input message: 'Application is ready for deployment, please, review and provide your approval'
+        }
+    }
+    stage('7Deploy-prod'){
+        deploy adapters: [tomcat9(credentialsId: 'Tomcat-credentials', path: '', url: 'http://54.208.131.217:8080/')], contextPath: null, war: 'target/*war'
+    }
+    stage('8Notification'){
+        emailext body: '''Build status for frontend application.
+
+Regards
+
+Nfesta Technologies''', recipientProviders: [buildUser(), contributor(), developers()], subject: 'Build Status', to: 'rangreApp@gmail.com'
+    }
+}
