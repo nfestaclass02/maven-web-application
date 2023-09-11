@@ -25,7 +25,7 @@ public class EmployeeService {
 		js.put("Name", "Nfesta Technologies");
 		js.put("Calling Name", "mynfesta");
 		js.put("DOB", "june 16, 2022");
-		js.put("Hobbies", "Praying, Singing, Reading Technical Blogs,Teaching, Helping to Poor People..");
+		js.put("Hobbies", "Praying, Dancing, Reading Technical Blogs,Teaching, Helping People acheive their goal..");
 		js.put("Places he likes", "Africa, NA, Thailand");
 		return js.toString();
 }
