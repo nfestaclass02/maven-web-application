@@ -22,7 +22,7 @@ node {
 
 Build from Ebay pipeline project.
 
-Landmark Tecxhnologies''', subject: 'Build status', to: 'developers'
+Nfesta Tecxhnologies''', subject: 'Build status', to: 'developers'
   }
   stage('Approval'){
     timeout(time:8, unit: 'HOURS' ) {
