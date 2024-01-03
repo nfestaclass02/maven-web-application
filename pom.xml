@@ -8,7 +8,7 @@
 	
 	<version>0.0.2-SNAPSHOT</version> 
 	
-	<name>range-web-application</name>
+	<name>toyota-web-application</name>
 
 	<description>Maven Web Project for Java Project</description>
 
@@ -107,7 +107,7 @@
 	</distributionManagement>
 	
 	<build>
-		<finalName>range-app</finalName>
+		<finalName>toyota-app</finalName>
 		
 		<plugins>
 			<plugin>
