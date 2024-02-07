@@ -103,7 +103,7 @@
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Nfesta Technologies Snapshot Nexus Repository </name>
-	      <url>http://107.22.56.2:8081/repository/toyota-ci-snapshot/</url>
+	      <url>http://54.149.122.50:7000/repository/boa-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
